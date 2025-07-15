@@ -1,0 +1,880 @@
+<<<<<<< HEAD
+[root@master1-test argocd]# cat backend.yaml
+=======
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+<<<<<<< HEAD
+      cni.projectcalico.org/containerID: 7e355a192cd69c8b2f2d43b6d39ade4746ab699121455ec59c7f1e2369e19633
+      cni.projectcalico.org/podIP: 10.244.171.88/32
+      cni.projectcalico.org/podIPs: 10.244.171.88/32
+    creationTimestamp: "2025-07-04T04:20:22Z"
+    generateName: backend-deployment-544f9ff4c8-
+    labels:
+      app: backend
+      pod-template-hash: 544f9ff4c8
+    name: backend-deployment-544f9ff4c8-gxtrx
+    namespace: backend
+=======
+      cni.projectcalico.org/containerID: 49503f8a8dbf2bd080c6cdee66e9fae4073d820bfa29fc1e1cdcdb447a72f775
+      cni.projectcalico.org/podIP: 10.244.171.96/32
+      cni.projectcalico.org/podIPs: 10.244.171.96/32
+    creationTimestamp: "2025-07-04T04:10:13Z"
+    generateName: front-6bb7c95c5d-
+    labels:
+      app: front
+      pod-template-hash: 6bb7c95c5d
+    name: front-6bb7c95c5d-k4s47
+    namespace: front
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+<<<<<<< HEAD
+      name: backend-deployment-544f9ff4c8
+      uid: af8c025f-8e69-45d3-82e3-f1435270dd9b
+    resourceVersion: "9988434"
+    uid: d9001095-2e03-4989-8021-12544b3088fa
+  spec:
+    containers:
+    - image: 192.168.22.62:30002/backend/backend:v2
+      imagePullPolicy: IfNotPresent
+      name: backend
+      ports:
+      - containerPort: 8080
+=======
+      name: front-6bb7c95c5d
+      uid: 1f4597c5-ea97-439a-945b-b90b4dd58e89
+    resourceVersion: "9985521"
+    uid: f7f7b7f2-4b81-465a-8ede-2cda4838de9d
+  spec:
+    containers:
+    - envFrom:
+      - configMapRef:
+          name: frontend-env
+      image: 192.168.22.62:30002/front/front:v4
+      imagePullPolicy: IfNotPresent
+      name: front-kyotong
+      ports:
+      - containerPort: 80
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+<<<<<<< HEAD
+        name: kube-api-access-bxhzg
+=======
+        name: kube-api-access-np5lm
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+<<<<<<< HEAD
+    - name: harbor-secret
+=======
+    - name: regcred
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    nodeName: worker3-test
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+<<<<<<< HEAD
+    - name: kube-api-access-bxhzg
+=======
+    - name: kube-api-access-np5lm
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+<<<<<<< HEAD
+      lastTransitionTime: "2025-07-04T04:20:25Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:22Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:25Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:25Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:22Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://d7eb5d011b58f2d2e9ca2a937e623e3882160e589eb246b8bad68a2b7bb79efd
+      image: 192.168.22.62:30002/backend/backend:v2
+      imageID: 192.168.22.62:30002/backend/backend@sha256:2fc6d1879d4f7534d42ee560ccaedb0e184f3b6c563610d48cdd01a36afc524a
+      lastState: {}
+      name: backend
+=======
+      lastTransitionTime: "2025-07-04T04:10:20Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:13Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:20Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:20Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:13Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://5471e8541dcd48b5f71750d1bf0b85393ed13b6a0925bcba05b776a113fba45d
+      image: 192.168.22.62:30002/front/front:v4
+      imageID: 192.168.22.62:30002/front/front@sha256:a2787f6f1d9f6a2a673c1f0cbd660c3596a33a9d2eec05978b53c22e7a38f234
+      lastState: {}
+      name: front-kyotong
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+<<<<<<< HEAD
+          startedAt: "2025-07-04T04:20:25Z"
+=======
+          startedAt: "2025-07-04T04:10:19Z"
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    hostIP: 192.168.22.67
+    hostIPs:
+    - ip: 192.168.22.67
+    phase: Running
+<<<<<<< HEAD
+    podIP: 10.244.171.88
+    podIPs:
+    - ip: 10.244.171.88
+    qosClass: BestEffort
+    startTime: "2025-07-04T04:20:22Z"
+=======
+    podIP: 10.244.171.96
+    podIPs:
+    - ip: 10.244.171.96
+    qosClass: BestEffort
+    startTime: "2025-07-04T04:10:13Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"front-kyotong-service","namespace":"front"},"spec":{"ports":[{"nodePort":30070,"port":80,"targetPort":80}],"selector":{"app":"front"},"type":"NodePort"}}
+    creationTimestamp: "2025-07-04T04:10:17Z"
+    name: front-kyotong-service
+    namespace: front
+    resourceVersion: "9985496"
+    uid: 18da6dc0-7afb-4a5c-af08-663e4ca24dbd
+  spec:
+    clusterIP: 10.108.128.150
+    clusterIPs:
+    - 10.108.128.150
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30070
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: front
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"creationTimestamp":"2025-07-04T01:02:10Z","generation":1,"labels":{"app":"front"},"name":"front","namespace":"front","resourceVersion":"9932458","uid":"200e6ff6-f524-424f-934d-e155761eba07"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app":"front"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"front"}},"spec":{"containers":[{"envFrom":[{"configMapRef":{"name":"frontend-env"}}],"image":"192.168.22.62:30002/front/front:v4","imagePullPolicy":"IfNotPresent","name":"front-kyotong","ports":[{"containerPort":80}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","imagePullSecrets":[{"name":"regcred"}],"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}},"status":{}}
+    creationTimestamp: "2025-07-04T04:10:13Z"
+    generation: 1
+    labels:
+      app: front
+    name: front
+    namespace: front
+    resourceVersion: "9985525"
+    uid: 927d47b6-f979-438f-a1f2-0d01fdb731c6
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: front
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: front
+      spec:
+        containers:
+        - envFrom:
+          - configMapRef:
+              name: frontend-env
+          image: 192.168.22.62:30002/front/front:v4
+          imagePullPolicy: IfNotPresent
+          name: front-kyotong
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+        - name: regcred
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-07-04T04:10:20Z"
+      lastUpdateTime: "2025-07-04T04:10:20Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2025-07-04T04:10:13Z"
+      lastUpdateTime: "2025-07-04T04:10:20Z"
+      message: ReplicaSet "front-6bb7c95c5d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2025-07-04T04:10:13Z"
+    generation: 1
+    labels:
+      app: front
+      pod-template-hash: 6bb7c95c5d
+    name: front-6bb7c95c5d
+    namespace: front
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: front
+      uid: 927d47b6-f979-438f-a1f2-0d01fdb731c6
+    resourceVersion: "9985523"
+    uid: 1f4597c5-ea97-439a-945b-b90b4dd58e89
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: front
+        pod-template-hash: 6bb7c95c5d
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: front
+          pod-template-hash: 6bb7c95c5d
+      spec:
+        containers:
+        - envFrom:
+          - configMapRef:
+              name: frontend-env
+          image: 192.168.22.62:30002/front/front:v4
+          imagePullPolicy: IfNotPresent
+          name: front-kyotong
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+        - name: regcred
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: List
+metadata:
+  resourceVersion: ""
+[root@master1-test argocd]# cat frontend.yaml
+apiVersion: v1
+items:
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+<<<<<<< HEAD
+      cni.projectcalico.org/containerID: 42675d91d34623ce3ea9827268913d5020b1bd04b0f5222ec431b534a94c6b33
+      cni.projectcalico.org/podIP: 10.244.133.153/32
+      cni.projectcalico.org/podIPs: 10.244.133.153/32
+    creationTimestamp: "2025-07-04T04:20:22Z"
+    generateName: backend-deployment-544f9ff4c8-
+    labels:
+      app: backend
+      pod-template-hash: 544f9ff4c8
+    name: backend-deployment-544f9ff4c8-rcqgw
+    namespace: backend
+=======
+      cni.projectcalico.org/containerID: 49503f8a8dbf2bd080c6cdee66e9fae4073d820bfa29fc1e1cdcdb447a72f775
+      cni.projectcalico.org/podIP: 10.244.171.96/32
+      cni.projectcalico.org/podIPs: 10.244.171.96/32
+    creationTimestamp: "2025-07-04T04:10:13Z"
+    generateName: front-6bb7c95c5d-
+    labels:
+      app: front
+      pod-template-hash: 6bb7c95c5d
+    name: front-6bb7c95c5d-k4s47
+    namespace: front
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+<<<<<<< HEAD
+      name: backend-deployment-544f9ff4c8
+      uid: af8c025f-8e69-45d3-82e3-f1435270dd9b
+    resourceVersion: "9988425"
+    uid: cce3ee58-b6fd-4334-b3b9-167b1a7e652e
+  spec:
+    containers:
+    - image: 192.168.22.62:30002/backend/backend:v2
+      imagePullPolicy: IfNotPresent
+      name: backend
+      ports:
+      - containerPort: 8080
+=======
+      name: front-6bb7c95c5d
+      uid: 1f4597c5-ea97-439a-945b-b90b4dd58e89
+    resourceVersion: "9985521"
+    uid: f7f7b7f2-4b81-465a-8ede-2cda4838de9d
+  spec:
+    containers:
+    - envFrom:
+      - configMapRef:
+          name: frontend-env
+      image: 192.168.22.62:30002/front/front:v4
+      imagePullPolicy: IfNotPresent
+      name: front-kyotong
+      ports:
+      - containerPort: 80
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+<<<<<<< HEAD
+        name: kube-api-access-rtcmh
+=======
+        name: kube-api-access-np5lm
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+<<<<<<< HEAD
+    - name: harbor-secret
+    nodeName: worker1-test
+=======
+    - name: regcred
+    nodeName: worker3-test
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+<<<<<<< HEAD
+    - name: kube-api-access-rtcmh
+=======
+    - name: kube-api-access-np5lm
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+<<<<<<< HEAD
+      lastTransitionTime: "2025-07-04T04:20:25Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:22Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:25Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:25Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:20:22Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://d2d13a890847721b3cbb4385aa24d465ae1f5eaec288e94e2fb58328436362ea
+      image: 192.168.22.62:30002/backend/backend:v2
+      imageID: 192.168.22.62:30002/backend/backend@sha256:2fc6d1879d4f7534d42ee560ccaedb0e184f3b6c563610d48cdd01a36afc524a
+      lastState: {}
+      name: backend
+=======
+      lastTransitionTime: "2025-07-04T04:10:20Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:13Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:20Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:20Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-07-04T04:10:13Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://5471e8541dcd48b5f71750d1bf0b85393ed13b6a0925bcba05b776a113fba45d
+      image: 192.168.22.62:30002/front/front:v4
+      imageID: 192.168.22.62:30002/front/front@sha256:a2787f6f1d9f6a2a673c1f0cbd660c3596a33a9d2eec05978b53c22e7a38f234
+      lastState: {}
+      name: front-kyotong
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+<<<<<<< HEAD
+          startedAt: "2025-07-04T04:20:25Z"
+    hostIP: 192.168.22.65
+    hostIPs:
+    - ip: 192.168.22.65
+    phase: Running
+    podIP: 10.244.133.153
+    podIPs:
+    - ip: 10.244.133.153
+    qosClass: BestEffort
+    startTime: "2025-07-04T04:20:22Z"
+=======
+          startedAt: "2025-07-04T04:10:19Z"
+    hostIP: 192.168.22.67
+    hostIPs:
+    - ip: 192.168.22.67
+    phase: Running
+    podIP: 10.244.171.96
+    podIPs:
+    - ip: 10.244.171.96
+    qosClass: BestEffort
+    startTime: "2025-07-04T04:10:13Z"
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+<<<<<<< HEAD
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"backend-service","namespace":"backend"},"spec":{"ports":[{"port":4000,"protocol":"TCP","targetPort":4000}],"selector":{"app":"backend"},"type":"NodePort"}}
+    creationTimestamp: "2025-07-04T01:48:17Z"
+    name: backend-service
+    namespace: backend
+    resourceVersion: "9988903"
+    uid: eab12f40-f276-42b8-aff0-63aac46bf8a3
+  spec:
+    clusterIP: 10.103.180.197
+    clusterIPs:
+    - 10.103.180.197
+=======
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"front-kyotong-service","namespace":"front"},"spec":{"ports":[{"nodePort":30070,"port":80,"targetPort":80}],"selector":{"app":"front"},"type":"NodePort"}}
+    creationTimestamp: "2025-07-04T04:10:17Z"
+    name: front-kyotong-service
+    namespace: front
+    resourceVersion: "9985496"
+    uid: 18da6dc0-7afb-4a5c-af08-663e4ca24dbd
+  spec:
+    clusterIP: 10.108.128.150
+    clusterIPs:
+    - 10.108.128.150
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+<<<<<<< HEAD
+    - nodePort: 32761
+      port: 4000
+      protocol: TCP
+      targetPort: 4000
+    selector:
+      app: backend
+=======
+    - nodePort: 30070
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: front
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+<<<<<<< HEAD
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"backend"},"name":"backend-deployment","namespace":"backend"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"backend"}},"template":{"metadata":{"labels":{"app":"backend"}},"spec":{"containers":[{"image":"192.168.22.62:30002/backend/backend:v2","name":"backend","ports":[{"containerPort":8080}]}],"imagePullSecrets":[{"name":"harbor-secret"}]}}}}
+    creationTimestamp: "2025-07-04T04:20:22Z"
+    generation: 1
+    labels:
+      app: backend
+    name: backend-deployment
+    namespace: backend
+    resourceVersion: "9988438"
+    uid: 494b2aba-239b-4324-8227-ae0f55da9e2b
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 2
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: backend
+=======
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"creationTimestamp":"2025-07-04T01:02:10Z","generation":1,"labels":{"app":"front"},"name":"front","namespace":"front","resourceVersion":"9932458","uid":"200e6ff6-f524-424f-934d-e155761eba07"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app":"front"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"front"}},"spec":{"containers":[{"envFrom":[{"configMapRef":{"name":"frontend-env"}}],"image":"192.168.22.62:30002/front/front:v4","imagePullPolicy":"IfNotPresent","name":"front-kyotong","ports":[{"containerPort":80}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","imagePullSecrets":[{"name":"regcred"}],"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}},"status":{}}
+    creationTimestamp: "2025-07-04T04:10:13Z"
+    generation: 1
+    labels:
+      app: front
+    name: front
+    namespace: front
+    resourceVersion: "9985525"
+    uid: 927d47b6-f979-438f-a1f2-0d01fdb731c6
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: front
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+<<<<<<< HEAD
+          app: backend
+      spec:
+        containers:
+        - image: 192.168.22.62:30002/backend/backend:v2
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 8080
+=======
+          app: front
+      spec:
+        containers:
+        - envFrom:
+          - configMapRef:
+              name: frontend-env
+          image: 192.168.22.62:30002/front/front:v4
+          imagePullPolicy: IfNotPresent
+          name: front-kyotong
+          ports:
+          - containerPort: 80
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+<<<<<<< HEAD
+        - name: harbor-secret
+=======
+        - name: regcred
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+<<<<<<< HEAD
+    availableReplicas: 2
+    conditions:
+    - lastTransitionTime: "2025-07-04T04:20:25Z"
+      lastUpdateTime: "2025-07-04T04:20:25Z"
+=======
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-07-04T04:10:20Z"
+      lastUpdateTime: "2025-07-04T04:10:20Z"
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+<<<<<<< HEAD
+    - lastTransitionTime: "2025-07-04T04:20:22Z"
+      lastUpdateTime: "2025-07-04T04:20:25Z"
+      message: ReplicaSet "backend-deployment-544f9ff4c8" has successfully progressed.
+=======
+    - lastTransitionTime: "2025-07-04T04:10:13Z"
+      lastUpdateTime: "2025-07-04T04:10:20Z"
+      message: ReplicaSet "front-6bb7c95c5d" has successfully progressed.
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+<<<<<<< HEAD
+    readyReplicas: 2
+    replicas: 2
+    updatedReplicas: 2
+=======
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+<<<<<<< HEAD
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2025-07-04T04:20:22Z"
+    generation: 1
+    labels:
+      app: backend
+      pod-template-hash: 544f9ff4c8
+    name: backend-deployment-544f9ff4c8
+    namespace: backend
+=======
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2025-07-04T04:10:13Z"
+    generation: 1
+    labels:
+      app: front
+      pod-template-hash: 6bb7c95c5d
+    name: front-6bb7c95c5d
+    namespace: front
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+<<<<<<< HEAD
+      name: backend-deployment
+      uid: 494b2aba-239b-4324-8227-ae0f55da9e2b
+    resourceVersion: "9988437"
+    uid: af8c025f-8e69-45d3-82e3-f1435270dd9b
+  spec:
+    replicas: 2
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 544f9ff4c8
+=======
+      name: front
+      uid: 927d47b6-f979-438f-a1f2-0d01fdb731c6
+    resourceVersion: "9985523"
+    uid: 1f4597c5-ea97-439a-945b-b90b4dd58e89
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: front
+        pod-template-hash: 6bb7c95c5d
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+<<<<<<< HEAD
+          app: backend
+          pod-template-hash: 544f9ff4c8
+      spec:
+        containers:
+        - image: 192.168.22.62:30002/backend/backend:v2
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 8080
+=======
+          app: front
+          pod-template-hash: 6bb7c95c5d
+      spec:
+        containers:
+        - envFrom:
+          - configMapRef:
+              name: frontend-env
+          image: 192.168.22.62:30002/front/front:v4
+          imagePullPolicy: IfNotPresent
+          name: front-kyotong
+          ports:
+          - containerPort: 80
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+<<<<<<< HEAD
+        - name: harbor-secret
+=======
+        - name: regcred
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+<<<<<<< HEAD
+    availableReplicas: 2
+    fullyLabeledReplicas: 2
+    observedGeneration: 1
+    readyReplicas: 2
+    replicas: 2
+=======
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+>>>>>>> de518a317440dc20e8a250873f7732e4c05118c2
+kind: List
+metadata:
+  resourceVersion: ""

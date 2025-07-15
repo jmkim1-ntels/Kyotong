@@ -1,0 +1,18 @@
+spring:
+  rabbitmq:
+    host: 192.168.22.63  # Kubernetes나 Docker Compose에서 서비스 이름
+    port: 32535
+    username: rabbit
+    password: rabbit
+  datasource:
+    url: jdbc:postgresql://192.168.22.66:31306/mydatabase
+    username: myuser
+    password: mypassword
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true   
+server:
+  port: 4000
